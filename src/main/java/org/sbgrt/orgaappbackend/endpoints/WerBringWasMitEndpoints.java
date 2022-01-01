@@ -31,6 +31,6 @@ public class WerBringWasMitEndpoints {
 
     @GetMapping
     public String test() {
-        return "Teststring aus Spring Boot";
+        return "Teststring aus Spring Boot xx";
     }
 }
