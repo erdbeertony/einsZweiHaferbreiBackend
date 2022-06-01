@@ -8,6 +8,7 @@ public class OrgaAppBackendApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OrgaAppBackendApplication.class, args);
+
         System.out.println("application runs");
     }
 

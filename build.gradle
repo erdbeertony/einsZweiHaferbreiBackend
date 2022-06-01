@@ -2,7 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-    id "com.microsoft.azure.azurewebapp" version "1.1.0"
+//    id "com.microsoft.azure.azurewebapp" version "1.1.0"
 }
 
 group = 'org.sbgrt'
@@ -20,15 +20,20 @@ repositories {
 }
 
 dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 //    implementation 'org.springframework.boot:spring-boot-starter-web'
 //    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // JUnit, Mockito, Hamcrest, AssertJ, JSONassert, and JsonPath
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+//    implementation 'mysql:mysql-connector-java'
+
+    implementation 'com.h2database:h2'
 
 }
 
@@ -37,15 +42,15 @@ test {
 }
 
 // https://www.youtube.com/watch?v=wlI6JO100q0
-azurewebapp {
-    subscription = '5762a335-c3a3-4be1-be7d-daedf20144fe'
-    resourceGroup = 'orga-app'
-    appName = 'orga-app-backend' // URL
-    pricingTier = 'B1' // P1v2
-    region = 'Germany West Central'
-    runtime {
-        os = 'Linux'
-        webContainer = 'Java SE'
-        javaVersion = 'Java 11'
-    }
-}
+//azurewebapp {
+//    subscription = '5762a335-c3a3-4be1-be7d-daedf20144fe'
+//    resourceGroup = 'orga-app'
+//    appName = 'orga-app-backend' // URL
+//    pricingTier = 'B1' // P1v2
+//    region = 'Germany West Central'
+//    runtime {
+//        os = 'Linux'
+//        webContainer = 'Java SE'
+//        javaVersion = 'Java 11'
+//    }
+//}
