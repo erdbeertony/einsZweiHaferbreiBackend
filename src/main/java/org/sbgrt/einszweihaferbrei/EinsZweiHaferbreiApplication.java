@@ -1,6 +1,5 @@
-package org.sbgrt.orgaappbackend;
+package org.sbgrt.einszweihaferbrei;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

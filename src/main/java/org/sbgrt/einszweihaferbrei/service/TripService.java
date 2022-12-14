@@ -1,6 +1,6 @@
-package org.sbgrt.orgaappbackend.service;
+package org.sbgrt.einszweihaferbrei.service;
 
-import org.sbgrt.orgaappbackend.model.Trip;
+import org.sbgrt.einszweihaferbrei.model.Trip;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

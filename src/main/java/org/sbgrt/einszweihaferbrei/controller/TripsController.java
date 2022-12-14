@@ -1,16 +1,10 @@
-package org.sbgrt.orgaappbackend.controller;
+package org.sbgrt.einszweihaferbrei.controller;
 
-import org.sbgrt.orgaappbackend.model.Trip;
-import org.sbgrt.orgaappbackend.service.TripService;
+import org.sbgrt.einszweihaferbrei.model.Trip;
+import org.sbgrt.einszweihaferbrei.service.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

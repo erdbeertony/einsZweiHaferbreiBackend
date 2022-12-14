@@ -1,7 +1,5 @@
-package org.sbgrt.orgaappbackend.model;
+package org.sbgrt.einszweihaferbrei.model;
 
-
-import java.util.List;
 
 public class Trip {
     String name;
