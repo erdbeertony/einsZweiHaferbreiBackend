@@ -1,9 +1,15 @@
 package org.sbgrt.einszweihaferbrei.model;
 
-
 public class Trip {
     String name;
     String description;
+    String url;
+
+    public Trip(String name, String description, String url) {
+        this.name = name;
+        this.description = description;
+        this.url = url;
+    }
 
     public String getUrl() {
         return url;
@@ -12,8 +18,6 @@ public class Trip {
     public void setUrl(String url) {
         this.url = url;
     }
-
-    String url;
 
     public String getName() {
         return name;
