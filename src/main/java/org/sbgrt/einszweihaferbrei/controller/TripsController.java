@@ -34,7 +34,8 @@ public class TripsController {
     }
 
     @PostMapping
-    public void save(@RequestBody Trip trip) {
+    public void save(@RequestBody String name) {
+        Trip trip = tripService.getAllTrips().stream().filter(t -> t.getName().equals(name)).findFirst().get();
         tripJpaRepository.save(trip);
     }
 
