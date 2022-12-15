@@ -38,11 +38,11 @@ public class TripService {
                 "https://funsport.pro/images/luftsport/skydive3.jpg"
         );
 
-//        Trip t5  =new Trip(
-//                "",
-//                "",
-//                ""
-//        );
+        Trip t6  =new Trip(
+                "Panzerfahren",
+                "Beschuss inkl.",
+                ""
+        );
 //
 //        Trip t5  =new Trip(
 //                "",

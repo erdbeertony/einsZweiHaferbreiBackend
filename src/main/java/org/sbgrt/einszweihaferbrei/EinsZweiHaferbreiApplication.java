@@ -2,8 +2,10 @@ package org.sbgrt.einszweihaferbrei;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+//@EnableJpaRepositories(basePackages = "org.sbgrt.einszweihaferbrei.persistence")
 public class EinsZweiHaferbreiApplication {
 
     public static void main(String[] args) {

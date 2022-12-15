@@ -1,9 +1,16 @@
 package org.sbgrt.einszweihaferbrei.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Trip {
+    @Id
     String name;
     String description;
     String url;
+
+    public Trip() {}
 
     public Trip(String name, String description, String url) {
         this.name = name;

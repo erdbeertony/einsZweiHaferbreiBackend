@@ -1,10 +1,13 @@
 package org.sbgrt.einszweihaferbrei.controller;
 
 import org.sbgrt.einszweihaferbrei.model.Trip;
+import org.sbgrt.einszweihaferbrei.persistence.TripJpaRepository;
 import org.sbgrt.einszweihaferbrei.service.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,29 +23,24 @@ public class TripsController {
     // https://www.baeldung.com/spring-boot-start
 
     @Autowired
-    TripService tripService;
+    private TripService tripService;
+
+    @Autowired
+    private TripJpaRepository tripJpaRepository;
 
     @GetMapping
     public List<Trip> getAll() {
         return tripService.getAllTrips();
     }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED) // 201
-//    public Veranstaltung create(@RequestBody Veranstaltung werBringtWasMit) {
-////        String randomString = StringTools.randomString50();
-////        repository.save(werBringtWasMit);
-//        return werBringtWasMit;
-//    }
+    @PostMapping
+    public void save(@RequestBody Trip trip) {
+        tripJpaRepository.save(trip);
+    }
 
-//    @GetMapping
-//    public String test() {
-//        Veranstaltung w = Veranstaltung.getDummy();
-////        repository.save(w);
-//
-//        return "Teststring aus Spring Boot xx";
-//    }
+    @GetMapping("/getBooked")
+    public List<Trip> getBookedTrips() {
+        return tripJpaRepository.findAll();
+    }
 
-//    @Autowired
-//    private WerBringtWasMitRepository repository;
 }
