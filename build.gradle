@@ -35,6 +35,8 @@ dependencies {
 
     implementation 'com.h2database:h2'
 
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.4' // http://localhost:8080/v3/api-docs/
+
 // https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage
 //    implementation 'com.microsoft.azure:azure-storage:8.6.6' // https://github.com/uglide/azure-content/blob/master/articles/storage/storage-java-how-to-use-table-storage.md
 
