@@ -4,6 +4,7 @@ import org.sbgrt.einszweihaferbrei.model.Trip;
 import org.sbgrt.einszweihaferbrei.persistence.TripJpaRepository;
 import org.sbgrt.einszweihaferbrei.service.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/trips")
@@ -34,9 +36,15 @@ public class TripsController {
     }
 
     @PostMapping
-    public void save(@RequestBody String name) {
-        Trip trip = tripService.getAllTrips().stream().filter(t -> t.getName().equals(name)).findFirst().get();
-        tripJpaRepository.save(trip);
+    public ResponseEntity save(@RequestBody String name) {
+        Optional<Trip> foundTrip = tripJpaRepository.findById(name);
+        if (foundTrip.isEmpty()) {
+            Trip trip = tripService.getAllTrips().stream().filter(t -> t.getName().equals(name)).findFirst().get();
+            tripJpaRepository.save(trip);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().body("Dieser Trip wurde schon gebucht!"); // 400
+        }
     }
 
     @GetMapping("/getBooked")
