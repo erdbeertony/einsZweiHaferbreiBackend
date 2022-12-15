@@ -2,13 +2,14 @@ package org.sbgrt.einszweihaferbrei.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Trip {
-    @Id
-    String name;
+    @Id String name;
     String description;
     String url;
+    @Transient boolean booked;
 
     public Trip() {}
 
@@ -40,5 +41,13 @@ public class Trip {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isBooked() {
+        return booked;
+    }
+
+    public void setBooked(boolean booked) {
+        this.booked = booked;
     }
 }

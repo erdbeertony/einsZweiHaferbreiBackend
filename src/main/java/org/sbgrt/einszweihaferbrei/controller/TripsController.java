@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/trips")
@@ -32,7 +34,12 @@ public class TripsController {
 
     @GetMapping
     public List<Trip> getAll() {
-        return tripService.getAllTrips();
+        List<Trip> trips = tripService.getAllTrips();
+        Set<String> persistedTripNames = tripJpaRepository.findAll()
+                .stream().map(t -> t.getName())
+                .collect(Collectors.toSet());
+        trips.forEach(t -> t.setBooked(persistedTripNames.contains(t.getName())));
+        return trips;
     }
 
     @PostMapping
